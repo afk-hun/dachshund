@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: Yettel slide offer menu API
+  version: 0.0.1
+servers:
+- url: /
+paths:
+  /tariffs:
+    get:
+      summary: Fetch all tarrifs
+      description: You will get a package with our awesome tariffs and their details
+      operationId: tariffsGET
+      parameters:
+      - name: offer_id
+        in: query
+        description: id of offer
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: '123456'
+      - name: tarriff_code
+        in: query
+        description: code of tariff
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: 'YPRPHS'
+      responses:
+        "200":
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tariff'
+                x-content-type: application/json
+        "400":
+          description: Bad request
+      security:
+      - ApiKeyAuth: []
+      - {}
+      x-swagger-router-controller: Default
+components:
+  schemas:
+    Tariff:
+      type: object
+      properties:
+        unic_id:
+          type: string
+          example: 000000003c2eef59000000003f0b5b64
+        tariff_title:
+          type: string
+          example: Yettel Prime+
+        desc:
+          type: array
+          example:
+          - Korlátlan mobilnet belföldön
+          - 250 perc beszéd
+          items:
+            type: string
+        cost:
+          $ref: '#/components/schemas/Cost'
+        invoice_type:
+          type: string
+          example: pay_monthly
+          enum:
+          - sim_only
+          - pay_monthly
+        prime_tariffs_link:
+          type: string
+          example: https://www.yettel.hu/prime-tarifa
+      example:
+        unic_id: 000000003c2eef59000000003f0b5b64
+        cost:
+          price: 13490
+          loyalty: 24 hónap hűséggel
+          currency: Ft
+          frequency: hó
+        prime_tariffs_link: https://www.yettel.hu/prime-tarifa
+        invoice_type: pay_monthly
+        tariff_title: Yettel Prime+
+        desc:
+        - Korlátlan mobilnet belföldön
+        - 250 perc beszéd
+    Cost:
+      type: object
+      properties:
+        price:
+          type: integer
+          example: 13490
+        currency:
+          type: string
+          example: Ft
+        frequency:
+          type: string
+          example: hó
+        loyalty:
+          type: string
+          example: 24 hónap hűséggel
+      example:
+        price: 13490
+        loyalty: 24 hónap hűséggel
+        currency: Ft
+        frequency: hó
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      name: X-API-KEY
+      in: header

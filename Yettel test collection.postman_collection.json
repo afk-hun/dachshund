@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "4f601f2f-27a8-444c-8a6f-0a712579f2a7",
+		"name": "Yettel test collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Adel (denied)",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "default"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "adel",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPRPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPRPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Kristof (denied)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "kristof",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPRPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPRPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hanna (filtered by tariff_code)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "hanna",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPRPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPRPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hanna (not filtered)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "hanna",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPMAXPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPMAXPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dominik (filtered by tarrif_code)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "dominik",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPRPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPRPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dominik (not filtered)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-API-KEY",
+						"value": "dominik",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPMAXPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPMAXPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "unauthorized user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tariffs?offer_id=123456&tarriff_code=YPRPHS",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tariffs"
+					],
+					"query": [
+						{
+							"key": "offer_id",
+							"value": "123456"
+						},
+						{
+							"key": "tarriff_code",
+							"value": "YPRPHS"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
